@@ -10,6 +10,7 @@ xxhash = "==3.1.0"
 matplotlib = "==3.6.2"
 numpy = "==1.23.4"
 pytest = "*"
+pre-commit = "*"
 
 [dev-packages]
 

@@ -16,9 +16,9 @@ class TestUseCase(unittest.TestCase):
         Test
         """
         df1 = pd.DataFrame({"PersonID": [0, 1], "Name": ["Bob", "Alice"]})
-        df2 = pd.DataFrame({
-            "CarType": ["VW id3", "Toyota Aygo X", "Audi a3"],
-            "OwnerID": [1, 0, 1]})
+        df2 = pd.DataFrame(
+            {"CarType": ["VW id3", "Toyota Aygo X", "Audi a3"], "OwnerID": [1, 0, 1]}
+        )
 
         collection = rp.Collection()
         collection.register_dataframes([df1, df2])

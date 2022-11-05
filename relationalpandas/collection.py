@@ -65,8 +65,9 @@ class Collection:
         for i, entry in enumerate(self.dataframes):
             self.df_map[self.hash_dataframe(entry)] = i
 
-    def register_relations(self,
-        relationlist: Sequence[Tuple[pd.DataFrame, pd.DataFrame, str, str]]):
+    def register_relations(
+        self, relationlist: Sequence[Tuple[pd.DataFrame, pd.DataFrame, str, str]]
+    ):
         """Register relations between the used dataframes
 
         Args:
@@ -78,11 +79,14 @@ class Collection:
             assert self.hash_dataframe(target) in self.df_map
             assert source_column in source
             assert target_column in target
-            self.relations.append([
-                self.get_index_of_dataframe(source),
-                self.get_index_of_dataframe(target),
-                source_column,
-                target_column])
+            self.relations.append(
+                [
+                    self.get_index_of_dataframe(source),
+                    self.get_index_of_dataframe(target),
+                    source_column,
+                    target_column,
+                ]
+            )
 
     def visualize(self) -> int:
         """Visualize the collection
@@ -102,12 +106,20 @@ class Collection:
         for ind_s, ind_t, source_column, target_column in self.relations:
             src = self.dataframes[ind_s]
             trg = self.dataframes[ind_t]
-            res = src.reset_index().merge(trg.reset_index(),
-                left_on=source_column,
-                right_on=target_column)[["index_x", "index_y", source_column, target_column]]
+            res = src.reset_index().merge(
+                trg.reset_index(), left_on=source_column, right_on=target_column
+            )[["index_x", "index_y", source_column, target_column]]
             for index, row in res.iterrows():
-                graph.add_edge(str(ind_s) + "_" + str(row[0]), str(ind_t) + "_" + str(row[1]))
+                graph.add_edge(
+                    str(ind_s) + "_" + str(row[0]), str(ind_t) + "_" + str(row[1])
+                )
 
-        nx.draw(graph, node_color=node_color, labels=labels, cmap=plt.cm.PiYG, node_size=2000)
+        nx.draw(
+            graph,
+            node_color=node_color,
+            labels=labels,
+            cmap=plt.cm.PiYG,
+            node_size=2000,
+        )
         plt.draw()
         return 1

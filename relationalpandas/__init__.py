@@ -1,1 +1,5 @@
-from .Collection import Collection
+"""
+RelationalPandas Package
+"""
+
+from .collection import Collection

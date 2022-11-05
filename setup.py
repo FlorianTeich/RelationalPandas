@@ -1,3 +1,7 @@
+"""
+Setup.py
+"""
+
 from setuptools import setup, find_packages
 
 setup(name='relationalpandas',
@@ -8,4 +12,11 @@ setup(name='relationalpandas',
       url='https://github.com/FlorianTeich/RelationalPandas',
       packages=find_packages(include=['relationalpandas', 'relationalpandas.*']),
       python_requires=">=3.6",
+      install_requires=[
+        'xxhash>=3.1.0',
+        'pandas>=1.5.1',
+        'numpy>=1.23.4',
+        'matplotlib>=3.6.2',
+        'networkx>=2.8.8'
+      ]
      )

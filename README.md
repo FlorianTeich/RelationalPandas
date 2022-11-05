@@ -37,12 +37,15 @@ pip install -e .
 ## 🚀 Quickstart
 
 ``` python
+import pandas as pd
 import RelationalPandas as rp
 
 df1 = pd.DataFrame({"PersonID": [0, 1], "Name": ["Bob", "Alice"]})
-df2 = pd.DataFrame({"CarType": ["VW id3", "Toyota Aygo X", "Audi a3"], "OwnerID": [1, 0, 1]})
+df2 = pd.DataFrame({
+    "CarType": ["VW id3", "Toyota Aygo X", "Audi a3"],
+    "OwnerID": [1, 0, 1]})
 
-collection = rp.new_collection()
+collection = rp.Collection()
 collection.register_dataframes([df1, df2])
 collection.register_name_columns(["Name", "CarType"])
 collection.register_relations([[df1, df2, "PersonID", "OwnerID"]])
@@ -51,12 +54,7 @@ collection.visualize()
 
 ## 🪣 TODOs:
 
-- [ ] classes
-- [ ] modules
-- [ ] setup.py
-- [ ] Tests
 - [ ] Documentation
-- [ ] Tutorials
 - [ ] Dockerfile
 - [ ] mypy Support
 - [ ] coverage

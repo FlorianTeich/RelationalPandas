@@ -9,6 +9,7 @@ networkx = "==2.8.8"
 xxhash = "==3.1.0"
 matplotlib = "==3.6.2"
 numpy = "==1.23.4"
+pytest = "*"
 
 [dev-packages]
 

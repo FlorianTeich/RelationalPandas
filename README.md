@@ -1,5 +1,10 @@
 # 🦑🐼🐍 RelationalPandas - Enrich your DataFrames by Relations
 
+![](https://img.shields.io/github/repo-size/FlorianTeich/RelationalPandas)
+
+![](https://img.shields.io/github/workflow/status/FlorianTeich/RelationalPandas/CI)
+
+
 ## Abstract
 
 Define relationships between dataframes in order to visually inspect your data more comfortable.

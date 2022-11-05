@@ -10,7 +10,7 @@ FROM base AS python-deps
 
 # Install pipenv and compilation dependencies
 RUN pip install pipenv
-RUN apt-get update && apt-get install -y gcc
+RUN apt-get update && apt-get install -y gcc build-essential
 RUN python -m venv /venv
 COPY Pipfile ./
 ENV PIPENV_VENV_IN_PROJECT 1

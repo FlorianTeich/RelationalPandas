@@ -1,0 +1,6 @@
+Collection
+=============
+
+
+.. automodule:: relationalpandas.collection
+    :members:

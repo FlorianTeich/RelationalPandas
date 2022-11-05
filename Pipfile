@@ -11,6 +11,9 @@ matplotlib = "==3.6.2"
 numpy = "==1.23.4"
 pytest = "*"
 pre-commit = "*"
+sphinx = "*"
+pydata-sphinx-theme = "*"
+sphinxcontrib-napoleon = "*"
 
 [dev-packages]
 

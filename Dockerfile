@@ -26,8 +26,10 @@ COPY . .
 # create a folder to hold the downloaded/built requirements
 RUN mkdir -p /srv/relationalpandas
 RUN mkdir -p /srv/tests
+RUN mkdir -p /srv/docs
 COPY relationalpandas /srv/relationalpandas
 COPY tests /srv/tests
+COPY docs /srv/docs
 
 # Create and switch to a new user
 RUN useradd --create-home appuser
@@ -35,3 +37,7 @@ WORKDIR /srv/
 USER appuser
 
 RUN python -m pytest -v --junit-xml /home/appuser/test_results.xml tests/test.py
+
+WORKDIR /srv/docs
+RUN sphinx-apidoc -f -o ./ ../relationalpandas
+RUN make html

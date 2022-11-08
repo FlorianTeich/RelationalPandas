@@ -35,6 +35,7 @@ COPY docs /srv/docs
 
 # Create and switch to a new user
 RUN useradd --create-home appuser
+RUN chown -R appuser:appuser /srv
 WORKDIR /srv/
 USER appuser
 

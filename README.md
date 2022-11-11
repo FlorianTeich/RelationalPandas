@@ -2,6 +2,7 @@
 
 ![](https://img.shields.io/github/repo-size/FlorianTeich/RelationalPandas)
 ![](https://img.shields.io/github/workflow/status/FlorianTeich/RelationalPandas/CI)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://florianteich.github.io/RelationalPandas/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FlorianTeich/RelationalPandas/HEAD?labpath=notebooks%2F)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://florianteich-relationalpandas-streamlit-app-goc51c.streamlit.app)
 

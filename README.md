@@ -1,9 +1,9 @@
 # 🦑🐼🐍 RelationalPandas - Enrich your DataFrames by Relations
 
 ![](https://img.shields.io/github/repo-size/FlorianTeich/RelationalPandas)
-
 ![](https://img.shields.io/github/workflow/status/FlorianTeich/RelationalPandas/CI)
-
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/FlorianTeich/RelationalPandas/HEAD?labpath=notebooks%2F)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://florianteich-relationalpandas-streamlit-app-goc51c.streamlit.app)
 
 ## Abstract
 
@@ -30,6 +30,20 @@ I want to be able to reorganize the entirety of data as a knowledge graph to ref
 Here is the same data but reorganized and visualized given the relation between the entities:
 
 ![output.png](output.png)
+
+
+```mermaid
+    erDiagram
+        PERSON ||--o{ CAR : owns
+        PERSON {
+            int PersonID
+            string Name
+        }
+        CAR {
+            int OwnerID
+            string CarType
+        }
+```
 
 ## ✨ Installation
 

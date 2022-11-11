@@ -44,3 +44,4 @@ RUN python -m pytest -v --junit-xml /home/appuser/test_results.xml tests/test.py
 WORKDIR /srv/docs
 RUN sphinx-apidoc -f -o ./ ../relationalpandas
 RUN make html
+ENTRYPOINT ["pip", "list"]

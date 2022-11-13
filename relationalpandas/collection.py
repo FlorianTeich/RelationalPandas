@@ -117,7 +117,7 @@ class Collection:
             [(entry[0], entry[1], entry[2], entry[3]) for entry in scene["relations"]]
             )
 
-    def visualize_instances(self, backend: str="matplotlib") -> int:
+    def visualize_instances(self, backend: str="matplotlib", return_figure=False) -> int:
         """Visualize the collection
 
         Returns:
@@ -155,6 +155,7 @@ class Collection:
             return 1
         elif backend == "plotly":
             import plotly.graph_objects as go
+            import plotly.express as px
 
             node_color = []
             labels = {}
@@ -208,29 +209,10 @@ class Collection:
                 mode='markers',
                 hoverinfo='text',
                 marker=dict(
-                    showscale=True,
-                    colorscale='YlGnBu',
-                    reversescale=True,
-                    color=[],
+                    color=px.colors.qualitative.Plotly,
                     size=10,
-                    colorbar=dict(
-                        thickness=15,
-                        title='Node Connections',
-                        xanchor='left',
-                        titleside='right'
-                    ),
                     line_width=2))
-            #node_adjacencies = []
-            #node_text = []
-            #for node, adjacencies in enumerate(G.adjacency()):
-            #    node_adjacencies.append(len(adjacencies[1]))
-            #    #node_text.append('# of connections: '+ str(len(adjacencies[1])))
-            #    node_text.append(list(labels.values())[node])
-
-            #node_trace.marker.color = node_adjacencies
-
             node_trace.marker.color = [int(i) for i in node_color]
-            #node_trace.text = node_text
             node_trace.text = list(labels.values())
             fig = go.Figure(data=[edge_trace, node_trace],
                         layout=go.Layout(
@@ -247,7 +229,10 @@ class Collection:
                             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                             yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                             )
-            fig.show()
-            return 1
+            if return_figure:
+                return fig
+            else:
+                fig.show()
+                return 1
         else:
             return -1

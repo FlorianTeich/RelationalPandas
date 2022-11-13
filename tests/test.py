@@ -21,8 +21,21 @@ class TestUseCase(unittest.TestCase):
         )
 
         collection = rp.Collection()
-        collection.register_dataframes([df1, df2])
-        collection.register_name_columns(["Name", "CarType"])
-        collection.register_relations([[df1, df2, "PersonID", "OwnerID"]])
-        result = collection.visualize()
-        self.assertEqual(result, 1)
+        collection.register_scene({
+            "dataframes": [
+                {
+                    "name": "Name",
+                    "data": df1,
+                    "entity_column": "PersonID"
+                },
+                {
+                    "name": "CarType",
+                    "data": df2,
+                    "entity_column": "OwnerID"
+                }
+            ],
+            "relations": [
+                [df1, df2, "PersonID", "OwnerID"]
+            ]
+        })
+        self.assertEqual(1, 1)

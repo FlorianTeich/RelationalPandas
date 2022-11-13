@@ -60,16 +60,34 @@ pip install -e .
 import pandas as pd
 import RelationalPandas as rp
 
-df1 = pd.DataFrame({"PersonID": [0, 1], "Name": ["Bob", "Alice"]})
+df1 = pd.DataFrame({
+            "PersonID": [0, 1],
+            "Name": ["Bob", "Alice"]
+        })
 df2 = pd.DataFrame({
-    "CarType": ["VW id3", "Toyota Aygo X", "Audi a3"],
-    "OwnerID": [1, 0, 1]})
+            "CarType": ["VW id3", "Toyota Aygo X", "Audi a3"],
+            "OwnerID": [1, 0, 1]
+        })
 
 collection = rp.Collection()
-collection.register_dataframes([df1, df2])
-collection.register_name_columns(["Name", "CarType"])
-collection.register_relations([[df1, df2, "PersonID", "OwnerID"]])
-collection.visualize()
+collection.register_scene({
+        "dataframes": [
+            {
+                "name": "Name",
+                "data": df1,
+                "entity_column": "PersonID"
+            },
+            {
+                "name": "CarType",
+                "data": df2,
+                "entity_column": "OwnerID"
+            }
+        ],
+        "relations": [
+            [df1, df2, "PersonID", "OwnerID"]
+        ]
+    })
+collection.visualize_instances()
 ```
 
 ## 🪣 TODOs:

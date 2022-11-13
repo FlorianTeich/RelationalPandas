@@ -1,3 +1,8 @@
 *.pyc
 *.egg-info
 .vscode
+*.zip
+*.db
+*.pstats
+*.profile
+examples/
